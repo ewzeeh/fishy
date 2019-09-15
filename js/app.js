@@ -192,23 +192,19 @@ function userdataToDatabase() {
 }
 
 function showProfilePic() {
-  const dbMail = firebase.auth().currentUser.email;
-
-  // Create a reference with an initial file path and name
-  var storage = firebase.storage();
-  var pathReference = storage.ref('profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@")));
-
+  
   // Create a reference from a Google Cloud Storage URI
-  var gsReference = storage.refFromURL('gs://fishy-bf1e5.appspot.com/profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@")));
-
+  // var gsReference = storage.refFromURL('gs://fishy-bf1e5.appspot.com/profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@")));
   // Create a reference from an HTTPS URL
   // Note that in the URL, characters are URL escaped!
-  var httpsReference = storage.refFromURL('https://firebasestorage.googleapis.com/v0/b/ishy-bf1e5.appspot.com/profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@")));
+  // var httpsReference = storage.refFromURL('https://firebasestorage.googleapis.com/v0/b/ishy-bf1e5.appspot.com/profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@")));
+  
+  var user = firebase.auth().currentUser;
+  var storageRef = firebase.storage().ref();
 
-
-  storageRef.child('profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@"))).getDownloadURL().then(function(url) {
+  storageRef.child('profilepictures/profilbilde' + user.email.substring(0, user.email.lastIndexOf("@"))).getDownloadURL().then(function(url) {
     // `url` is the download URL for 'images/stars.jpg'
-
+    console.log(url);
     // This can be downloaded directly:
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
@@ -219,10 +215,15 @@ function showProfilePic() {
     xhr.send();
 
     // Or inserted into an <img> element:
-    var img = document.getElementById('myimg');
+    var img = document.getElementById('profilePicture');
     img.src = url;
   }).catch(function(error) {
     // Handle any errors
+    console.error(error);
   });
+
+}
+
+function uploadFileToStorage(file) {
 
 }

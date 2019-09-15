@@ -70,7 +70,7 @@
         <h2>Last opp bilde:</h2>
         <progress value="0" max="100" id="uploader">0%</progress><br />
         <input type="file" value="upload" id="fileButton" />
-        <img src="#" id="myimg">
+        <img id="profilePicture">
       </div>
       <hr>
 
@@ -113,26 +113,38 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
+     <script>
+      //Handle Account Status
+      firebase.auth().onAuthStateChanged(user => {
+        if (!user) {
+          window.location = 'index.html'; //If User is not logged in, redirect to login page
+        } else {
+          getUserData();
+          console.log('Innlogget');
+          showProfilePic();
+          // const userr = firebase.auth().currentUser.email;
+          // var nameOutput = userr.substring(0, userr.lastIndexOf("@"));
+          // document.getElementById("usrloggedin").innerHTML = nameOutput;
+        }
+      });
+    </script>
   <script>
     var uploader = document.getElementById('uploader');
     var fileButton = document.getElementById('fileButton');
-    var user = firebase.auth().currentUser;
-
-
 
     //Listen for file selection
     fileButton.addEventListener('change', function(e) {
+      var user = firebase.auth().currentUser;
+      console.log(user);
       // Get files
-      var filnavn = 'profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@"));
+      var filename = 'profilbilde' + user.email.substring(0, user.email.lastIndexOf("@"));
       var file = e.target.files[0];
-      var tempfilename = file;
-      var filename = filnavn;
 
       // Create storageRef
-      var storageRef = firebase.storage().ref('/profilepictures/' + filename);
+      var storageRef = firebase.storage().ref();
 
       // Upload files
-      var task = storageRef.put(file);
+      var task = storageRef.child('profilepictures/' + filename).put(file);
 
       // Update progress bar
       task.on('state_changed',
@@ -149,21 +161,6 @@
 
         }
       )
-    });
-  </script>
-
-  <script>
-    //Handle Account Status
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        window.location = 'index.html'; //If User is not logged in, redirect to login page
-      } else {
-        getUserData();
-        console.log('Innlogget');
-        // const userr = firebase.auth().currentUser.email;
-        // var nameOutput = userr.substring(0, userr.lastIndexOf("@"));
-        // document.getElementById("usrloggedin").innerHTML = nameOutput;
-      }
     });
   </script>
 </body>
