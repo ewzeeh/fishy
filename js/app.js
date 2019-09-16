@@ -38,8 +38,8 @@ function getUserData() {
       document.getElementById('usrEmail').innerHTML = profile.email;
       document.getElementById('usrUsername').innerHTML = profile.displayName;
       document.getElementById('usernameEdit').value = profile.displayName;
-      document.getElementById('userImgEdit').value = profile.photoURL;
-      document.getElementById('usrImg').innerHTML = "<img src=\"" + profile.photoURL + "\" height=\"150px\">";
+      // document.getElementById('userImgEdit').value = profile.photoURL;
+      // document.getElementById('usrImg').innerHTML = "<img src=\"" + profile.photoURL + "\" height=\"150px\">";
 
     });
   }
@@ -144,17 +144,17 @@ function signOut() {
 
 function updateUserData() {
   var newUsername = document.getElementById('usernameEdit').value;
-  var newImg = document.getElementById('userImgEdit').value;
+  // var newImg = document.getElementById('userImgEdit').value;
   const dbMail = firebase.auth().currentUser.email;
   var dbBrukerNavn = firebase.auth().currentUser.displayName;
   var dbProfilbilde = firebase.auth().currentUser.photoURL;
-  console.log(newImg);
+  // console.log(newImg);
   console.log(newUsername);
 
   var user = firebase.auth().currentUser;
   user.updateProfile({
     displayName: newUsername,
-    photoURL: newImg
+    // photoURL: newImg
   }).then(function() {
     // Update successful.
     console.log('Oppdatering vellykket');
@@ -192,13 +192,13 @@ function userdataToDatabase() {
 }
 
 function showProfilePic() {
-  
+
   // Create a reference from a Google Cloud Storage URI
   // var gsReference = storage.refFromURL('gs://fishy-bf1e5.appspot.com/profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@")));
   // Create a reference from an HTTPS URL
   // Note that in the URL, characters are URL escaped!
   // var httpsReference = storage.refFromURL('https://firebasestorage.googleapis.com/v0/b/ishy-bf1e5.appspot.com/profilepictures/profilbilde'+firebase.auth().currentUser.email.substring(0, firebase.auth().currentUser.email.lastIndexOf("@")));
-  
+
   var user = firebase.auth().currentUser;
   var storageRef = firebase.storage().ref();
 
@@ -215,8 +215,9 @@ function showProfilePic() {
     xhr.send();
 
     // Or inserted into an <img> element:
-    var img = document.getElementById('profilePicture');
+    var img = document.getElementById('usrImg');
     img.src = url;
+    document.getElementById('profImg').src = url;
   }).catch(function(error) {
     // Handle any errors
     console.error(error);
