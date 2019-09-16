@@ -8,7 +8,6 @@
     window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-147409455-1');
 </script>
 
@@ -41,7 +40,7 @@
           <a class="nav-item nav-link" href="records.html">Rekorder</a>
         </li>
       </ul>
-      <a class="btn btn-outline-primary" href="profile.html" role="button">Profil</a>
+      <a class="btn btn-outline-primary" href="profile.html" role="button"><img id="profImg" class="rounded" height="22px"> Profil</a>
       <button onclick="signOut()" class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logg ut</button>
     </div>
   </nav>
@@ -62,15 +61,22 @@
       <p id="feedback"></p>
       <label for="usernameEdit">Velg eller endre brukernavn:</label>
       <input type="text" class="form-control" id="usernameEdit" placeholder="Velg eller endre brukernavn her">
-      <label for="userImgEdit">Legg inn full link til profilbilde:<br> <i>(Eks: http://snaps.aarvikgudmundsen.no/2.png)<br>Husk å ha med http</i></label>
-      <input type="text" class="form-control" id="userImgEdit" placeholder="Legg inn link til profilbilde her" value="">
+
       <button onclick="updateUserData()" type="button" class="btn btn-reg">Endre / Oppdater</button><br />
 
       <div class="container mt-3">
-        <h2>Last opp bilde:</h2>
+        <h2>Endre profilbilde:</h2>
         <progress value="0" max="100" id="uploader">0%</progress><br />
-        <input type="file" value="upload" id="fileButton" />
-        <img id="profilePicture">
+
+        <!-- <input type="file" value="upload" id="fileButton" /> -->
+
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="fileButton">
+            <label class="custom-file-label" for="inputGroupFile02">Velg profilbilde her</label>
+          </div>
+        </div>
+
       </div>
       <hr>
 
@@ -79,7 +85,7 @@
         <div class="profile-sidebar">
           <!-- SIDEBAR USERPIC -->
           <div class="profile-userpic">
-            <span id="usrImg"></span>
+            <img id="usrImg">
           </div>
           <!-- END SIDEBAR USERPIC -->
           <!-- SIDEBAR USER TITLE -->
@@ -113,25 +119,24 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
-     <script>
-      //Handle Account Status
-      firebase.auth().onAuthStateChanged(user => {
-        if (!user) {
-          window.location = 'index.html'; //If User is not logged in, redirect to login page
-        } else {
-          getUserData();
-          console.log('Innlogget');
-          showProfilePic();
-          // const userr = firebase.auth().currentUser.email;
-          // var nameOutput = userr.substring(0, userr.lastIndexOf("@"));
-          // document.getElementById("usrloggedin").innerHTML = nameOutput;
-        }
-      });
-    </script>
+  <script>
+    //Handle Account Status
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location = 'index.html'; //If User is not logged in, redirect to login page
+      } else {
+        getUserData();
+        console.log('Innlogget');
+        showProfilePic();
+        // const userr = firebase.auth().currentUser.email;
+        // var nameOutput = userr.substring(0, userr.lastIndexOf("@"));
+        // document.getElementById("usrloggedin").innerHTML = nameOutput;
+      }
+    });
+  </script>
   <script>
     var uploader = document.getElementById('uploader');
     var fileButton = document.getElementById('fileButton');
-
     //Listen for file selection
     fileButton.addEventListener('change', function(e) {
       var user = firebase.auth().currentUser;
@@ -139,26 +144,19 @@
       // Get files
       var filename = 'profilbilde' + user.email.substring(0, user.email.lastIndexOf("@"));
       var file = e.target.files[0];
-
       // Create storageRef
       var storageRef = firebase.storage().ref();
-
       // Upload files
       var task = storageRef.child('profilepictures/' + filename).put(file);
-
       // Update progress bar
       task.on('state_changed',
         function progress(snapshot) {
           var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           uploader.value = percentage;
         },
-
-        function error(err) {
-
-        },
-
+        function error(err) {},
         function complete() {
-
+          location.reload();
         }
       )
     });
