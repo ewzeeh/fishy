@@ -8,4 +8,4 @@ what kind of fish the other users has caught + place etc.</p>
 <p>The project is created by <em>Eivind Gudmundsen</em> and <em>Jan Johan Eidsmo</em>. And the main reason was
 to get practice in the design- and development process.</p>
 
-<p>Have a look at the application here: <a href="https://fishy.aarvikgudmundsen.no">https://fishy.aarvikgudmundsen.no</a>
+<p>Have a look at the application here: <a href="https://fishy.aarvikgudmundsen.no" target="_blank">https://fishy.aarvikgudmundsen.no</a>
