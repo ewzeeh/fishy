@@ -1,9 +1,9 @@
 (function() {
   const config = {
-    apiKey: "AIzaSyCaA8H8ewnFd1Es4miZi3w3bp6y5dkJ0VE",
-    authDomain: "fishy-bf1e5.firebaseapp.com",
-    databaseURL: "https://fishy-bf1e5.firebaseio.com",
-    storageBucket: "fishy-bf1e5.appspot.com"
+    apiKey: "hidden",
+    authDomain: "hidden",
+    databaseURL: "hidden",
+    storageBucket: "hidden"
   };
   firebase.initializeApp(config);
 
@@ -29,17 +29,10 @@ function getUserData() {
 
   if (user != null) {
     user.providerData.forEach(function(profile) {
-      // console.log("Sign-in provider: " + profile.providerId);
-      // console.log("  Provider-specific UID: " + profile.uid);
-      // console.log("  Name: " + profile.displayName);
-      // console.log("  Email: " + profile.email);
-      // console.log("  Photo URL: " + profile.photoURL);
 
       document.getElementById('usrEmail').innerHTML = profile.email;
       document.getElementById('usrUsername').innerHTML = profile.displayName;
       document.getElementById('usernameEdit').value = profile.displayName;
-      // document.getElementById('userImgEdit').value = profile.photoURL;
-      // document.getElementById('usrImg').innerHTML = "<img src=\"" + profile.photoURL + "\" height=\"150px\">";
 
     });
   }
@@ -66,7 +59,6 @@ function addFish() {
 
 
   var firebaseRef = firebase.database().ref().child('fisk').push();
-  //  var dbusername = document.querySelector(".usrloggedin").textContent;
   var dbart = document.getElementById('art').value;
   var dbweight = document.getElementById('weight').value;
   var dblength = document.getElementById('length').value;
@@ -144,7 +136,6 @@ function signOut() {
 
 function updateUserData() {
   var newUsername = document.getElementById('usernameEdit').value;
-  // var newImg = document.getElementById('userImgEdit').value;
   const dbMail = firebase.auth().currentUser.email;
   var dbBrukerNavn = firebase.auth().currentUser.displayName;
   var dbProfilbilde = firebase.auth().currentUser.photoURL;
@@ -185,10 +176,6 @@ function userdataToDatabase() {
     username: dbBrukerNavn,
     pic: dbProfilbilde
   });
-  // var firebaseRef = firebase.database().ref().child('bruker').push();
-  // firebaseRef.child("email").set(dbMail);
-  // firebaseRef.child("username").set(dbBrukerNavn);
-  // firebaseRef.child("pic").set(dbProfilbilde);
 }
 
 function showProfilePic() {
