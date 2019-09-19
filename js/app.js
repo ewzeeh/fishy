@@ -32,7 +32,7 @@ function getUserData() {
 
       document.getElementById('usrEmail').innerHTML = profile.email;
       document.getElementById('usrUsername').innerHTML = profile.displayName;
-      document.getElementById('usernameEdit').value = profile.displayName;
+      // document.getElementById('usernameEdit').value = profile.displayName;
 
     });
   }
@@ -59,7 +59,7 @@ function addFish() {
 
 
   var firebaseRef = firebase.database().ref().child('fisk').push();
-  var dbart = document.getElementById('art').value;
+  var dbart = document.getElementById('species').value;
   var dbweight = document.getElementById('weight').value;
   var dblength = document.getElementById('length').value;
   const userr = firebase.auth().currentUser.email;
@@ -102,7 +102,7 @@ function dataToTable() {
         content += '<td class="species">' + val.species + '</td>';
         content += '<td>' + val.weigth + ' kg' + '</td>';
         content += '<td>' + val.length + ' cm' + '</td>';
-        content += '<td><a href="https://maps.google.com/?q=' + val.place + '" target="_blank">' + val.place + '</a></td>';
+        content += '<td><a class="map" href="https://maps.google.com/?q=' + val.place + '" target="_blank">' + val.place + '</a></td>';
         content += '</tr>';
       });
       $('#ex-table').append(content);
@@ -204,7 +204,7 @@ function showProfilePic() {
     // Or inserted into an <img> element:
     var img = document.getElementById('usrImg');
     img.src = url;
-    document.getElementById('profImg').src = url;
+    // document.getElementById('profImg').src = url;
   }).catch(function(error) {
     // Handle any errors
     console.error(error);
@@ -214,4 +214,8 @@ function showProfilePic() {
 
 function uploadFileToStorage(file) {
 
+}
+
+function profile() {
+  window.location = 'profile.html';
 }
