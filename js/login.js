@@ -1,9 +1,9 @@
 (function() {
   const config = {
-    apiKey: "hidden",
-    authDomain: "hidden",
-    databaseURL: "hidden",
-    storageBucket: "hidden"
+    apiKey: "AIzaSyCaA8H8ewnFd1Es4miZi3w3bp6y5dkJ0VE",
+    authDomain: "fishy-bf1e5.firebaseapp.com",
+    databaseURL: "https://fishy-bf1e5.firebaseio.com",
+    storageBucket: "fishy-bf1e5.appspot.com"
   };
   firebase.initializeApp(config);
 
@@ -19,17 +19,17 @@
   const btnResetPassword = document.getElementById('btnResetPassword');
   const feilmeld = document.getElementById('feilinnlogging');
 
-  // btnResetPassword.addEventListener('click', e => {
-  //   // Henter epost og passord fra input
-  //   const email = txtEmail.value;
-  //   const auth = firebase.auth();
-  //
-  //   //Logg inn
-  //   const promise = auth.sendPasswordResetEmail(email);
-  //   feilmeld.innerHTML = 'Følg instruksjoner sendt til ' + email;
-  //   promise.catch(e => feilmeld.innerHTML = e.message);
-  //
-  // });
+  btnResetPassword.addEventListener('click', e => {
+    // Henter epost og passord fra input
+    const email = txtEmail.value;
+    const auth = firebase.auth();
+
+    //Logg inn
+    const promise = auth.sendPasswordResetEmail(email);
+    feilmeld.innerHTML = 'Følg instruksjoner sendt til ' + email;
+    promise.catch(e => feilmeld.innerHTML = e.message);
+
+  });
 
   btnLogin.addEventListener('click', e => {
     // Henter epost og passord fra input
@@ -67,7 +67,7 @@
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log(firebaseUser);
-      window.location = 'overview.html';
+      window.location = 'landing.html';
     } else {
       console.log('Ikke innlogget');
     }
