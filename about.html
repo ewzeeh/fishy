@@ -2,19 +2,10 @@
 <html lang="en">
 
 <head>
-  <title>Fishy // Rekorder</title>
+  <title>Fishy // Om Fishy</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link data-require="bootstrap-css@3.0.2" data-semver="3.0.2" rel="stylesheet" href="css/bootstrap.min.css" />
-  <link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-  <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-  <script data-require="jqueryui@*" data-semver="1.10.0" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script data-require="bootstrap@*" data-semver="3.0.2" src="js/bootstrap.min.js"></script>
-  <script src="js/footable.js"></script>
-  <script src="js/footable.filter.js"></script>
-  <script src="js/footable.paginate.js"></script>
-  <script data-require="prototype@*" data-semver="1.7.1+0" src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 
@@ -40,7 +31,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body onload="dataToTable()">
+<body>
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
@@ -52,10 +43,10 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="landing.html" class="nav-link">Hjem</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">Om Fishy</a></li>
+          <li class="nav-item active"><a href="about.html" class="nav-link">Om Fishy</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Tjenester</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Registrering</a></li>
-          <li class="nav-item active"><a href="records.html" class="nav-link">Rekorder</a></li>
+          <li class="nav-item"><a href="records.html" class="nav-link">Rekorder</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Kontakt</a></li>
           <li class="nav-item cta dropdown">
             <a class="nav-link dropdown-toggle" href="portfolio.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -100,174 +91,36 @@
     <div class="container">
       <div class="row justify-content-center mb-5 pb-5">
         <div class="col-md-7 text-center heading-section ftco-animate">
-          <span class="subheading">FISHY</span>
-          <h2 class="mb-4">Rekorder</h2>
+          <span class="subheading">Team</span>
+          <h2 class="mb-4">Hils på Fishy-teamet</h2>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4 mb-5 ftco-animate">
-
-
-          <div>
-            <div id="demo">
-
-              <table class="table table-striped demo default footable" data-filter="#filter" data-filter-text-only="false" data-page-size="10" data-page-navigation=".pagination">
-                <thead>
-                  <tr>
-                    <th data-hide="phone,tablet">
-                      Dato
-                    </th>
-                    <th data-toggle="true">
-                      Bruker
-                    </th>
-                    <th data-hide="phone,tablet">
-                      Art
-                    </th>
-                    <th class="footable-first-column">
-                      Vekt
-                    </th>
-                    <th data-hide="phone, tablet">
-                      Lengde
-                    </th>
-                    <th data-hide="phone, tablet" class="footable-last-column">
-                      Sted
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="" style="display: table-row;">
-                    <td class="footable-first-column">
-                      <span class="footable-toggle"></span>
-                      01/01/2001
-                    </td>
-                    <td>Eivind2</td>
-                    <td>Fisken</td>
-                    <td>0.55</td>
-                    <td>29</td>
-                    <td class="footable-last-column">
-                      <a href="#">Magerholm</a>
-                    </td>
-                  </tr>
-
-                  <tr class="" style="display: table-row;">
-                    <td class="footable-first-column">
-                      <span class="footable-toggle"></span>
-                      01/01/2001
-                    </td>
-                    <td>Eivind2</td>
-                    <td>Fisken</td>
-                    <td>0.55</td>
-                    <td>29</td>
-                    <td class="footable-last-column">
-                      <a href="#">Magerholm</a>
-                    </td>
-                  </tr>
-
-                  <tr class="" style="display: table-row;">
-                    <td class="footable-first-column">
-                      <span class="footable-toggle"></span>
-                      01/01/2001
-                    </td>
-                    <td>Eivind2</td>
-                    <td>Fisken</td>
-                    <td>0.55</td>
-                    <td>29</td>
-                    <td class="footable-last-column">
-                      <a href="#">Magerholm</a>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tfoot class="hide-if-no-paging">
-                  <tr>
-                    <td colspan="5" class="text-center">
-                      <ul class="pagination"></ul>
-                    </td>
-                  </tr>
-                </tfoot>
-              </table>
+          <div class="block-10">
+            <div class="person-info mb-2">
+              <span class="name">Eivind Årvik Gudmundsen</span>
+              <span class="position">Utvikler og designer</span>
             </div>
+            <img src="https://scontent.fosl4-1.fna.fbcdn.net/v/t1.0-9/41633871_10160581234760018_362618999265034240_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_oc=AQnWbCcwMYQTwbUQ3LRT5nloNrrzxXaV5JnFr6HflEtsVy_AzIrQiqGDJ9k1oqPorC8&_nc_ht=scontent.fosl4-1.fna&oh=e6b100ef2ca01eaea30a8e6f767333cc&oe=5EB76825"
+              alt="" class="img-fluid mb-3">
+            <p>Tekstseksjon.</p>
           </div>
-          <script type="text/javascript">
-            (function($) {
-              window.footable.options.filter.filterFunction = function(index) {
-                var $t = $(this),
-                  $table = $t.parents('table:first'),
-                  filter = $table.data('current-filter').toUpperCase(),
-                  columns = $t.find('td');
-
-                var regEx = new RegExp("\\b" + filter + "\\b");
-                var result = false;
-                for (i = 0; i < columns.length; i++) {
-                  var text = $(columns[i]).text();
-                  result = regEx.test(text.toUpperCase());
-                  if (result === true)
-                    break;
-
-
-                  if (!$table.data('filter-text-only')) {
-                    text = $(columns[i]).data("value");
-                    if (text)
-                      result = regEx.test(text.toString().toUpperCase());
-                  }
-
-                  if (result === true)
-                    break;
-                }
-
-                return result;
-              };
-
-              $('table').footable().bind('footable_filtering', function(e) {
-                var selected = $('.filter-status').find(':selected').text();
-                if (selected && selected.length > 0) {
-                  e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
-                  e.clear = !e.filter;
-                }
-              });
-
-              $('.clear-filter').click(function(e) {
-                e.preventDefault();
-                $('.filter-status').val('');
-                $('table.demo').trigger('footable_clear_filter');
-              });
-
-              $('.filter-status').change(function(e) {
-                e.preventDefault();
-                $('table.demo').trigger('footable_filter', {
-                  filter: $('#filter').val()
-                });
-              });
-
-              $('.filter-api').click(function(e) {
-                e.preventDefault();
-
-                //get the footable filter object
-                var footableFilter = $('table').data('footable-filter');
-
-                alert('about to filter table by "dragoo"');
-                //filter by 'tech'
-                footableFilter.filter('dragoo');
-
-                //clear the filter
-                if (confirm('clear filter now?')) {
-                  footableFilter.clearFilter();
-                }
-              });
-
-              $('.filter-status').change(function(e) {
-                e.preventDefault();
-                $('table.demo').data('footable-filter').filter($('#filter').val());
-              });
-            })(jQuery);
-          </script>
-
-
-
-
-
         </div>
 
+        <div class="col-md-4 mb-5 ftco-animate">
+        </div>
+
+        <div class="col-md-4 mb-5 ftco-animate">
+          <div class="block-10">
+            <div class="person-info mb-2">
+              <span class="name">Jan Johan Eidsmo</span>
+              <span class="position">Designer</span>
+            </div>
+            <img src="#" alt="" class="img-fluid mb-3">
+            <p>Tekstseksjon.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -439,7 +292,7 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
-  <!-- <script src="js/jquery.timepicker.min.js"></script> -->
+  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/particles.min.js"></script>
   <script src="js/particle.js"></script>
   <script src="js/scrollax.min.js"></script>

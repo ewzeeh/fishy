@@ -17,6 +17,8 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <style type="text/css">
     html,
     body,
@@ -26,6 +28,7 @@
     }
 
     @media (max-width: 740px) {
+
       html,
       body,
       header,
@@ -35,6 +38,7 @@
     }
 
     @media (min-width: 800px) and (max-width: 850px) {
+
       html,
       body,
       header,
@@ -42,21 +46,32 @@
         height: 650px;
       }
     }
+
     @media (min-width: 800px) and (max-width: 850px) {
-              .navbar:not(.top-nav-collapse) {
-                  background: #1C2331!important;
-              }
-          }
+      .navbar:not(.top-nav-collapse) {
+        background: #1C2331 !important;
+      }
+    }
   </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147409455-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147409455-1');
+</script>
+
 </head>
 
 <body>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
   <!-- Full Page Intro -->
-  <div class="view full-page-intro" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg'); background-repeat: no-repeat; background-size: cover;">
+  <div class="view full-page-intro" style="background-image: url('img/bg.jpeg'); background-repeat: no-repeat; background-size: cover;">
 
     <!-- Mask & flexbox options-->
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -75,7 +90,7 @@
             <hr class="hr-light">
 
             <p>
-              <strong>Fishy er en applikasjon hvor du kan registrer og sammeligne dine fiskefangster med andre brukere</strong>
+              <strong>Fishy er en applikasjon hvor du kan registrere og sammeligne dine fiskefangster med andre brukere</strong>
             </p>
 
             <p class="mb-4 d-none d-md-block">
@@ -100,29 +115,39 @@
 
                 <!-- Form -->
 
-                  <!-- Heading -->
-                  <h3 class="dark-grey-text text-center">
-                    <strong>Logg inn</strong>
-                  </h3>
+                <!-- Heading -->
+                <h3 class="dark-grey-text text-center">
+                  <strong>Logg inn</strong>
+                </h3>
+                <hr>
+
+                <div class="md-form">
+                  <i class="fas fa-envelope prefix grey-text"></i>
+                  <label for="email">E-post</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email" required>
+
+                </div>
+                <div class="md-form">
+                  <i class="fas fa-key prefix grey-text"></i>
+                  <label for="password">Passord</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password">
+
+                </div>
+                <p id="feilinnlogging"></p>
+                <div class="text-center">
+                  <button class="btn btn-indigo" id="btnLogin">Logg inn</button>
+                  <button class="btn btn-indigo" id="btnResetPassword">Glemt passord?</button>
                   <hr>
+                </div>
 
-                  <div class="md-form">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <label for="email">E-post</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                <script>
+                  $("#password").keypress(function(event) {
+                    if (event.keyCode === 13) {
+                      $("#btnLogin").click();
+                    }
+                  });
 
-                  </div>
-                  <div class="md-form">
-                    <i class="fas fa-key prefix grey-text"></i>
-                    <label for="password">Passord</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-
-                  </div>
-                  <p id="feilinnlogging"></p>
-                  <div class="text-center">
-                    <button class="btn btn-indigo" id="btnLogin">Logg inn</button>
-                    <hr>
-                  </div>
+                </script>
 
 
                 <!-- Form -->

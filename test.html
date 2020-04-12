@@ -2,15 +2,23 @@
 <html lang="en">
 
 <head>
-  <title>Fishy // Profil</title>
+  <title>Fishy // Rekorder</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+  <link data-require="bootstrap-css@3.0.2" data-semver="3.0.2" rel="stylesheet" href="css/bootstrap.min.css" />
+  <link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+  <link rel="stylesheet" href="css/footable.core.css" />
+  <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script data-require="jqueryui@*" data-semver="1.10.0" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script data-require="bootstrap@*" data-semver="3.0.2" src="js/bootstrap.min.js"></script>
+  <script src="js/footable.js"></script>
+  <script src="js/footable.filter.js"></script>
+  <script src="js/footable.paginate.js"></script>
+  <script data-require="prototype@*" data-semver="1.7.1+0" src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -31,13 +39,15 @@
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
+
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Fishy</a>
+      <a class="navbar-brand" href="index.html">Snipp.</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -49,10 +59,10 @@
           <li class="nav-item"><a href="#" class="nav-link">Tjenester</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Registrering</a></li>
           <li class="nav-item"><a href="records.html" class="nav-link">Rekorder</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Kontakt</a></li>
+          <li class="nav-item active"><a href="contact.html" class="nav-link">Kontakt</a></li>
 
           <li class="nav-item cta dropdown">
-            <a class="nav-link dropdown-toggle active" href="portfolio.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+            <a class="nav-link dropdown-toggle" href="portfolio.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
               <a class="dropdown-item" href="profile.html">Profil</a>
               <a onclick="signOut()" class="dropdown-item" href="index.html">Logg ut</a>
@@ -65,41 +75,142 @@
   </nav>
   <!-- END nav -->
 
-
-  <section class="ftco-section ftco-degree-bg">
+  <div class="hero-wrap js-fullheight">
+    <div class="overlay"></div>
+    <div id="particles-js"></div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-8 ftco-animate">
-          <h2 class="mb-3">Din fangst</h2>
+      <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+        <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
 
-          <table class="table table-striped sortable" id="ex-table" data-toggle="table" role="table">
-            <tr id="tr" role="row">
-              <thead class="thead-dark" role="rowgroup">
-
-                <th role="columnheader">Dato:</th>
-                <th role="columnheader">Fisk:</th>
-                <th role="columnheader" class="sorttable_numeric">Vekt (kg):</th>
-                <th role="columnheader" class="sorttable_numeric">Lengde (cm):</th>
-                <th role="columnheader">Sted:</th>
-
-              </thead>
-            </tr>
-          </table>
-        </div> <!-- .col-md-8 -->
-        <div class="col-md-4 sidebar ftco-animate order-first">
-
-
-
-          <div class="sidebar-box ftco-animate">
-            <h3 id="usrEmail">Mail</h3>
-            <h4 id="usrUsername">Brukernavn</h3>
-            <img id="usrImg" src="" alt="Profile picture">
-          </div>
+          <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Resultater</h1>
         </div>
-
       </div>
     </div>
-  </section> <!-- .section -->
+  </div>
+
+  <section class="ftco-section contact-section ftco-degree-bg">
+    <div class="container bg-light">
+      <h2>test</h2>
+
+      <div>
+        <div id="demo">
+
+          <table class="table table-striped demo default footable" id="ex-table" data-filter-delay="1" data-filter-text-only="false" data-page-size="5" data-page-navigation=".pagination">
+            <thead>
+              <tr>
+                <th data-hide="phone">
+                  Dato
+                </th>
+                <th data-toggle="true">
+                  Bruker
+                </th>
+                <th data-hide="phone">
+                  Art
+                </th>
+                <th class="footable-first-column">
+                  Vekt
+                </th>
+                <th data-hide="phone">
+                  Lengde
+                </th>
+                <th data-hide="phone" class="footable-last-column">
+                  Sted
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+            <tfoot class="hide-if-no-paging">
+              <tr>
+                <td colspan="5" class="text-center">
+                  <ul class="pagination"></ul>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        (function($) {
+          window.footable.options.filter.filterFunction = function(index) {
+            var $t = $(this),
+              $table = $t.parents('table:first'),
+              filter = $table.data('current-filter').toUpperCase(),
+              columns = $t.find('td');
+
+            var regEx = new RegExp("\\b" + filter + "\\b");
+            var result = false;
+            for (i = 0; i < columns.length; i++) {
+              var text = $(columns[i]).text();
+              result = regEx.test(text.toUpperCase());
+              if (result === true)
+                break;
+
+
+              if (!$table.data('filter-text-only')) {
+                text = $(columns[i]).data("value");
+                if (text)
+                  result = regEx.test(text.toString().toUpperCase());
+              }
+
+              if (result === true)
+                break;
+            }
+
+            return result;
+          };
+
+          $('table').footable().bind('footable_filtering', function(e) {
+            var selected = $('.filter-status').find(':selected').text();
+            if (selected && selected.length > 0) {
+              e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+              e.clear = !e.filter;
+            }
+          });
+
+
+          $('.clear-filter').click(function(e) {
+            e.preventDefault();
+            $('.filter-status').val('');
+            $('table.demo').trigger('footable_clear_filter');
+          });
+
+          $('.filter-status').change(function(e) {
+            e.preventDefault();
+            $('table.demo').trigger('footable_filter', {
+              filter: $('#filter').val()
+            });
+          });
+
+          $('.filter-api').click(function(e) {
+            e.preventDefault();
+
+            //get the footable filter object
+            var footableFilter = $('table').data('footable-filter');
+
+            alert('about to filter table by "dragoo"');
+            //filter by 'tech'
+            footableFilter.filter('dragoo');
+
+            //clear the filter
+            if (confirm('clear filter now?')) {
+              footableFilter.clearFilter();
+            }
+          });
+
+          $('.filter-status').change(function(e) {
+            e.preventDefault();
+            $('table.demo').data('footable-filter').filter($('#filter').val());
+          });
+        })(jQuery);
+      </script>
+
+
+    </div>
+  </section>
 
 
   <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -179,26 +290,29 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <!-- <script src="js/jquery.timepicker.min.js"></script> -->
+  <script src="js/particles.min.js"></script>
+  <script src="js/particle.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+  <!-- <script src="js/google-map.js"></script> -->
   <script src="js/main.js"></script>
-
   <script src="js/app.js"></script>
+
   <script>
-    //Handle Account Status
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
         window.location = 'index.html'; //If User is not logged in, redirect to login page
       } else {
-        getUserData();
         console.log('Innlogget');
-        displayNametoNav();
-        showProfilePic();
-        dataToPersonalTable();
+        dataToTable();
+
       }
     });
   </script>
+
+
 
 </body>
 
